@@ -7,7 +7,9 @@ RSpec.describe 'As a user', type: :feature do
       # And I select "Greyjoy" from the dropdown
       select 'Greyjoy', from: 'house'
       # And I click on "Get Members"
-      click_on 'Get Members'
+      VCR.use_cassette('greyjoy_members') do
+        click_on 'Get Members'
+      end
       # Then my path should be "/search" with "house=greyjoy" in the parameters
       expect(current_path).to eq('/search?house=greyjoy')
       # And I should see a message "7 Members"
