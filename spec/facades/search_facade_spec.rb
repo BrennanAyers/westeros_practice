@@ -8,6 +8,8 @@ RSpec.describe SearchFacade do
   end
 
   it '#member_count' do
-    expect(subject.member_count).to eq(11)
+    VCR.use_cassette('stark_members') do
+      expect(subject.member_count).to eq(11)
+    end
   end
 end
