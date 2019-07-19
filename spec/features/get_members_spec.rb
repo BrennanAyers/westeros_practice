@@ -5,8 +5,7 @@ RSpec.describe 'As a user', type: :feature do
     it 'and I select Greyjoy from the dropdown and click Get Members' do
       visit root_path
       # And I select "Greyjoy" from the dropdown
-      # require "pry"; binding.pry
-      select 'Greyjoy', from: 'families'
+      select 'Greyjoy', from: 'house'
       # And I click on "Get Members"
       click_on 'Get Members'
       # Then my path should be "/search" with "house=greyjoy" in the parameters

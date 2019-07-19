@@ -1,0 +1,13 @@
+<h1>Westeros Family Finder</h1>
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= select_tag(:house, options_for_select([
+  ['Stark', 1],
+  ['Lannister', 2],
+  ['Targaryen', 3],
+  ['Tyrell', 4],
+  ['Greyjoy', 5]
+  ])) %>
+  <%= submit_tag("Get Members") %>
+<% end %>
