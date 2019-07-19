@@ -9,6 +9,14 @@ class SearchFacade
     @members.count
   end
 
+  def members
+    @members ||= westeros_service.members
+
+    @members.map do |member|
+      HouseMember.new(member)
+    end
+  end
+
   private
 
   def westeros_service
